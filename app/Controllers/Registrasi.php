@@ -20,13 +20,29 @@ class Registrasi extends Controller
     }
 
     public function store()
-    {
-        helper(['form', 'url']);
-        $model = new RegistrasiModel();
+{
+    $model = new RegistrasiModel();
 
-        $data = [
+    $rules = [
+        'nis' => 'required',
+        'nama_siswa' => 'required',
+        'jenis_kelamin' => 'required',
+        'umur' => 'required',
+        'agama' => 'required',
+        'alamat' => 'required',
+        'kelas' => 'required',
+        'hobi' => 'required',
+        'tinggi_badan' => 'required',
+        'berat_badan' => 'required',
+        'alasan_basket' => 'required',
+    ];
+
+    if (!$this->validate($rules)) {
+        $data['validation'] = $this->validator;
+    } else {
+        $model->save([
             'nis' => $this->request->getPost('nis'),
-            'nama_siswa'  => $this->request->getPost('nama_siswa'),
+            'nama_siswa' => $this->request->getPost('nama_siswa'),
             'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
             'umur' => $this->request->getPost('umur'),
             'agama' => $this->request->getPost('agama'),
@@ -36,11 +52,14 @@ class Registrasi extends Controller
             'tinggi_badan' => $this->request->getPost('tinggi_badan'),
             'berat_badan' => $this->request->getPost('berat_badan'),
             'alasan_basket' => $this->request->getPost('alasan_basket'),
-        ];
+        ]);
 
-        $model->insert($data);
-        return redirect()->to('/registrasi');
+        session()->setFlashdata('success', 'Data berhasil disimpan.');
+
+        return redirect()->to('/daftar');
     }
+}
+
 
     public function edit($id = null)
     {
