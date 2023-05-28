@@ -2,16 +2,10 @@
 
 <?= $this->section('content') ?>
 <div class="container">
+    <h1 class="mt-5 text-center fw-bold">DAFTAR</h1>
     <div class="row m-5">
         <div class="offset-md-2 col-md-8 col-sm-12 border">
-
-            <?php if (isset($validation)): ?>
-                <div class="validation_errors">
-                <?= $validation->listErrors() ?>
-                </div>
-            <?php endif ?>
-
-            <form action="/registrasi/store" method="post" class="p-2">
+            <form action="" method="POST" class="p-2">
                 <div class="mb-3">
                     <label for="" class="form-label">NIS</label>
                     <input type="number" class="form-control" name="nis" required>

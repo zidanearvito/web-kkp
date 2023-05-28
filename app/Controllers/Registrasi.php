@@ -16,11 +16,6 @@ class Registrasi extends Controller
 
     public function create()
     {
-        return view('registrasi/create');
-    }
-
-    public function store()
-{
     $model = new RegistrasiModel();
 
     $rules = [
@@ -58,7 +53,8 @@ class Registrasi extends Controller
 
         return redirect()->to('/daftar');
     }
-}
+        return view('/daftar');
+    }
 
 
     public function edit($id = null)

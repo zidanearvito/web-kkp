@@ -19,8 +19,4 @@ class Home extends BaseController
         return view('TentangKami');
     }
 
-    public function daftar()
-    {
-        return view('daftar');
-    }
 }
