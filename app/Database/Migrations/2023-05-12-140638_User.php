@@ -22,7 +22,7 @@ class User extends Migration
             ],
             'password' => [
                 'type' => 'VARCHAR',
-                'constraint' => 25,
+                'constraint' => 255,
             ],
             'nama_lengkap' => [
                 'type' => 'VARCHAR',

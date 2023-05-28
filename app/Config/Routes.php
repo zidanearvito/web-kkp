@@ -38,10 +38,10 @@ $routes->add('/daftar', 'Registrasi::create');
 //route admin
 $routes->group('admin', function($routes){
     $routes->add('login', 'User::login');
-    $routes->get('registrasi', 'Registrasi::index');
-    $routes->get('registrasi/edit/(:num)', 'Registrasi::edit/$1');
-    $routes->post('registrasi/update', 'Registrasi::update');
-    $routes->get('registrasi/delete/(:num)', 'Registrasi::delete/$1');
+    $routes->get('/', 'Registrasi::index');
+    // $routes->get('edit/(:num)', 'Registrasi::edit/$1');
+    // $routes->post('update', 'Registrasi::update');
+    $routes->get('delete/(:num)', 'Registrasi::delete/$1');
 });
 
 /*

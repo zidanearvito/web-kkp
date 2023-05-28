@@ -48,13 +48,13 @@ class User extends Controller
                 return redirect()->to("admin/login");
             }
 
-            // $akun = [
-            //     'akun_username' => $dataAkun['username'],
-            //     'akun_nama_lengkap' => $dataAkun['nama_lengkap'],
-            //     'akun_email' => $dataAkun['email']
-            // ];
-            // session()->set($akun);
-            return redirect()->to('admin/sukses');
+            $akun = [
+                'akun_username' => $dataAkun['username'],
+                'akun_nama_lengkap' => $dataAkun['nama_lengkap'],
+                'akun_email' => $dataAkun['email']
+            ];
+            session()->set($akun);
+            return redirect()->to('admin/');
         }
         return view("admin/login", $data);
     }
