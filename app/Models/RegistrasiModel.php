@@ -11,7 +11,7 @@ class RegistrasiModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = [
         'nis', 'nama_siswa', 'jenis_kelamin', 'umur', 'agama',
-        'alamat', 'kelas', 'hobi', 'tinggi_badan', 'berat_badan',
-        'alasan_basket'
+        'alamat', 'kelas', 'jurusan', 'hobi', 'tinggi_badan', 'berat_badan',
+        'alasan_basket', 'kode_pendaftaran'
     ];
 }

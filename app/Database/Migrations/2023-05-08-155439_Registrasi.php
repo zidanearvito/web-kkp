@@ -59,9 +59,9 @@ class Registrasi extends Migration
                 'type' => 'TEXT',
                 'null' => true,
             ],
-            'kd_pendaftaran' => [
+            'kode_pendaftaran' => [
                 'type' => 'VARCHAR',
-                'constraint' => '15',
+                'constraint' => '255',
             ],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP'
         ]);

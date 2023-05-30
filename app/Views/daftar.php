@@ -23,7 +23,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Umur</label>
-                    <input type="text" class="form-control" name="umur" required>
+                    <input type="number" class="form-control" name="umur" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Agama</label>
@@ -35,7 +35,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Kelas</label>
-                    <input type="text" class="form-control" name="kelas" required>
+                    <input type="number" class="form-control" name="kelas" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Jurusan</label>
+                    <input type="text" class="form-control" name="jurusan" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Hobi</label>
@@ -66,6 +70,13 @@
             icon: 'success',
             title: 'Success!',
             text: '<?= session()->getFlashdata('success') ?>',
+        });
+    <?php endif ?>
+    <?php if (session()->getFlashdata('error')): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: '<?= session()->getFlashdata('error') ?>',
         });
     <?php endif ?>
 </script>
