@@ -39,6 +39,7 @@ $routes->add('/daftar', 'Registrasi::create');
 $routes->group('admin', function($routes){
     $routes->add('login', 'User::login');
     $routes->get('/', 'Registrasi::index');
+    $routes->get('data', 'Registrasi::data');
     // $routes->get('edit/(:num)', 'Registrasi::edit/$1');
     // $routes->post('update', 'Registrasi::update');
     $routes->get('delete/(:num)', 'Registrasi::delete/$1');

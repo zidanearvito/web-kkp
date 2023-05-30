@@ -9,9 +9,14 @@ class Registrasi extends Controller
 {
     public function index()
     {
+        return view('admin/index');
+    }
+
+    public function data()
+    {
         $model = new RegistrasiModel();
         $data['registrasi'] = $model->orderBy('id', 'DESC')->findAll();
-        return view('admin/index', $data);
+        return view('admin/data_pendaftar', $data);
     }
 
     public function create()
@@ -103,6 +108,6 @@ class Registrasi extends Controller
     {
         $model = new RegistrasiModel();
         $model->delete($id);
-        return redirect()->to('admin/');
+        return redirect()->to('/admin/data');
     }
 }
