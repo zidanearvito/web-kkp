@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
+use App\Controllers\BaseController;
 use App\Models\UserModel;
-use CodeIgniter\Controller;
 
-class User extends Controller
+class User extends BaseController
 {
     function __construct()
     {
@@ -54,8 +54,15 @@ class User extends Controller
                 'akun_email' => $dataAkun['email']
             ];
             session()->set($akun);
-            return redirect()->to('admin/');
+            return redirect()->to("admin/sukses");
         }
         return view("admin/login", $data);
+    }
+
+    function sukses()
+    {
+        return redirect()->to('admin/dashboard');
+        // print_r(session()->get());
+        // echo "ISIAN COOKIE USERNAME " . get_cookie("cookie_username") . " DAN PASSWORD " . get_cookie("cookie_password");
     }
 }

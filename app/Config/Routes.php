@@ -5,6 +5,8 @@ namespace Config;
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
+
+
 /*
  * --------------------------------------------------------------------
  * Router Setup
@@ -15,6 +17,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
+$routes->setAutoRoute(true);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -31,14 +34,16 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // route utama
 $routes->get('/', 'Home::index');
-$routes->get('/jadwal', 'Home::jadwal');
-$routes->get('/tentang-kami', 'Home::tentang');
-$routes->add('/daftar', 'Registrasi::create');
+$routes->get('jadwal', 'Home::jadwal');
+$routes->get('tentang-kami', 'Home::tentang');
+$routes->add('daftar', 'Registrasi::create');
 
 //route admin
 $routes->group('admin', function($routes){
-    $routes->add('login', 'User::login');
-    $routes->get('/', 'Registrasi::index');
+    $routes->add('', 'Admin/User::login');
+    $routes->add('login', 'Admin/User::login');
+    $routes->add('sukses', 'Admin/User::sukses');
+    $routes->get('dashboard', 'Registrasi::index');
     $routes->get('data', 'Registrasi::data');
     // $routes->get('edit/(:num)', 'Registrasi::edit/$1');
     // $routes->post('update', 'Registrasi::update');

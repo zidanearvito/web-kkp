@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
 use App\Models\RegistrasiModel;
-use CodeIgniter\Controller;
 
-class Registrasi extends Controller
+class Registrasi extends BaseController
 {
     public function index()
     {
