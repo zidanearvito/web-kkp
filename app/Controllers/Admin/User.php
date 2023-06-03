@@ -62,7 +62,16 @@ class User extends BaseController
     function sukses()
     {
         return redirect()->to('admin/dashboard');
-        // print_r(session()->get());
-        // echo "ISIAN COOKIE USERNAME " . get_cookie("cookie_username") . " DAN PASSWORD " . get_cookie("cookie_password");
+    }
+
+    function logout()
+    {
+        // delete_cookie("cookie_username");
+        // delete_cookie("cookie_password");
+        session()->destroy();
+        if (session()->get('akun_username') != '') {
+            session()->setFlashdata("success", "Anda berhasil logout");
+        }
+        return view("admin/login");
     }
 }

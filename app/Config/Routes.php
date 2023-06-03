@@ -39,16 +39,31 @@ $routes->get('tentang-kami', 'Home::tentang');
 $routes->add('daftar', 'Registrasi::create');
 
 //route admin
-$routes->group('admin', function($routes){
-    $routes->add('', 'Admin/User::login');
-    $routes->add('login', 'Admin/User::login');
-    $routes->add('sukses', 'Admin/User::sukses');
-    $routes->get('dashboard', 'Registrasi::index');
-    $routes->get('data', 'Registrasi::data');
+// $routes->group('admin', function($routes){
+//     $routes->add('', 'Admin/User::login');
+//     $routes->add('login', 'Admin/User::login');
+//     $routes->add('sukses', 'Admin/User::sukses');
+//     $routes->get('dashboard', 'Registrasi::index');
+//     $routes->get('data', 'Registrasi::data');
     // $routes->get('edit/(:num)', 'Registrasi::edit/$1');
     // $routes->post('update', 'Registrasi::update');
-    $routes->get('delete/(:num)', 'Registrasi::delete/$1');
+//     $routes->get('delete/(:num)', 'Registrasi::delete/$1');
+// });
+$routes->add('admin/logout', 'Admin/User::logout');
+
+$routes->group('admin', ['filter' => 'noauth'], function ($routes) {
+    $routes->add('', 'Admin/User::login');
+    $routes->add('login', 'Admin/User::login');
 });
+
+$routes->group('admin', ['filter' => 'auth'], function ($routes) {
+    $routes->add('sukses', 'Admin/User::sukses');
+
+    $routes->add('dashboard', 'Registrasi::index');
+    $routes->add('data', 'Registrasi::data');
+    $routes->add('delete/(:num)', 'Registrasi::delete/$1');
+});
+
 
 /*
  * --------------------------------------------------------------------
