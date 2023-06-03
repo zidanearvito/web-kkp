@@ -66,12 +66,10 @@ class User extends BaseController
 
     function logout()
     {
-        // delete_cookie("cookie_username");
-        // delete_cookie("cookie_password");
         session()->destroy();
-        if (session()->get('akun_username') != '') {
-            session()->setFlashdata("success", "Anda berhasil logout");
-        }
-        return view("admin/login");
+        // if (session()->get('akun_username') != '') {
+        //     session()->setFlashdata("success", "Anda berhasil logout");
+        // }
+        return redirect()->to('admin/login');
     }
 }
