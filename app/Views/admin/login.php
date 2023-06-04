@@ -69,13 +69,7 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="password" name="password" placeholder="Password">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="inputRememberPassword" name="remember_me" value="1">
-                                                <label class="custom-control-label" for="inputRememberPassword">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
+                                        
                                         <input class="btn btn-primary btn-user btn-block" type="submit" name="submit" value="LOGIN"/>
                                             
                                         <hr>
